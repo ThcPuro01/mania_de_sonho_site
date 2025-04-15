@@ -10,6 +10,7 @@
   <header>
     <h1>Mania de Sonho</h1>
     <p>Doces e sonhos artesanais com alma</p>
+    <p class="bem-vindos">Bem-vindos ao mundo dos doces sonhos!</p>
   </header>
   <nav>
     <ul>
@@ -19,21 +20,29 @@
       <li><a href="#" onclick="mostrarSecao('contato')">Contato</a></li>
     </ul>
   </nav>
+
   <main>
-    <section id="quem-somos">
+    <section id="inicio">
+      <h2>Bem-vindo!</h2>
+      <p class="bem-vindos">Bem-vindos ao mundo dos doces sonhos!</p>
+    </section>
+
+    <section id="quem-somos" class="hidden">
       <h2>Quem Somos</h2>
       <p>A Mania de Sonho nasceu com a missão de transformar doces em momentos de felicidade. Criamos cada produto com dedicação e ingredientes selecionados.</p>
     </section>
 
     <section id="produtos" class="hidden">
       <h2>Produtos</h2>
-      <div class="galeria">
-        <img src="imagens/img1.jpeg" alt="Produto 1">
-        <img src="imagens/img2.jpeg" alt="Produto 2">
-        <img src="imagens/img3.jpeg" alt="Produto 3">
-        <img src="imagens/img4.jpeg" alt="Produto 4">
-        <img src="imagens/img5.jpeg" alt="Produto 5">
-        <img src="imagens/img6.jpeg" alt="Produto 6">
+      <div class="carrossel">
+        <div class="slides">
+          <img src="imagens/img1.jpeg" alt="Produto 1">
+          <img src="imagens/img2.jpeg" alt="Produto 2">
+          <img src="imagens/img3.jpeg" alt="Produto 3">
+          <img src="imagens/img4.jpeg" alt="Produto 4">
+          <img src="imagens/img5.jpeg" alt="Produto 5">
+          <img src="imagens/img6.jpeg" alt="Produto 6">
+        </div>
       </div>
     </section>
 
@@ -67,16 +76,58 @@
       </form>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2025 Mania de Sonho | Visita <a href="" target="_blank"></a></p>
+    <p>&copy; 2025 Mania de Sonho | Visita <a href="https://gptonline.ai/pt/" target="_blank">GPT Online</a></p>
   </footer>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      mostrarSecao('inicio'); // Exibe a seção inicial ao carregar o site
+    });
+
     function mostrarSecao(id) {
+      // Esconde todas as seções dentro do <main>
       document.querySelectorAll('main section').forEach(secao => {
-        secao.classList.add('hidden');
+        secao.classList.add('hidden'); // Adiciona a classe 'hidden' para esconder
       });
-      document.getElementById(id).classList.remove('hidden');
+
+      // Mostra apenas a seção correspondente ao ID
+      const secaoSelecionada = document.getElementById(id);
+      if (secaoSelecionada) {
+        secaoSelecionada.classList.remove('hidden'); // Remove a classe 'hidden' para exibir
+      }
     }
+  </script>
+  <script>
+    // Carrossel automático
+    let slideIndex = 0;
+    const slides = document.querySelector('.slides');
+    const imgs = document.querySelectorAll('.slides img');
+
+    function mostrarSlide() {
+      slideIndex = (slideIndex + 1) % imgs.length;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+    setInterval(mostrarSlide, 3000);
+
+    // Zoom ao clicar
+    imgs.forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = 0;
+        modal.style.left = 0;
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        modal.style.background = 'rgba(0,0,0,0.8)';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.innerHTML = `<img src="${img.src}" style="max-width: 90%; max-height: 90%; border-radius: 10px;">`;
+        modal.onclick = () => document.body.removeChild(modal);
+        document.body.appendChild(modal);
+      });
+    });
   </script>
 </body>
 </html>
