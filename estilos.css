@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* CSS Document */  
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0; padding: 0; background-color: #fffaf5; color: #272030;
+}
+header {
+  background-color: #FF5757; color: #272030; padding: 2rem 1rem; text-align: center;
+  border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+nav ul {
+  list-style: none; padding: 0.5rem 0; margin: 0; display: flex;
+  justify-content: center; background: #ffe0cc; border-radius: 0 0 20px 20px;
+  box-shadow: 0 2px 6px #272030;
+}
+nav ul li { margin: 0 20px; }
+nav ul li a {
+  color: #4a3f35; text-decoration: none; font-weight: 600; transition: color 0.3s ease;
+}
+nav ul li a:hover { color: #FF5757; }
+section { padding: 2rem; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hidden { display: none; }
+footer {
+  text-align: center; background-color: #ff3131; color: #272030;
+  padding: 1rem; border-top-left-radius: 30px; border-top-right-radius: 30px;
+  margin-top: 2rem;
+}
+form {
+  display: flex; flex-direction: column; max-width: 450px; margin: 0 auto;
+  background: #fff; padding: 2rem; border-radius: 15px;
+  box-shadow: 0 4px 12px #272030);
+}
+label, input, textarea { margin-bottom: 1rem; }
+input, textarea {
+  padding: 0.7rem; border: 1px solid #ccc; border-radius: 10px;
+  transition: all 0.3s ease;
+}
+input:focus, textarea:focus {
+  border-color: #ff5757; outline: none;
+  box-shadow: 0 0 5px #ff3131;
+}
+button {
+  padding: 0.8rem; background-color: #ff5757; color: white; border: none;
+  border-radius: 12px; cursor: pointer; font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+button:hover { background-color: #ff3131; }
+.galeria {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  justify-content: center; margin-top: 1rem;
+}
+.galeria img {
+  width: 100%; max-width: 300px; border-radius: 12px;
+  box-shadow: 0 3px 8px #272030; transition: transform 0.3s ease;
+}
+.galeria img:hover { transform: scale(1.05); }
