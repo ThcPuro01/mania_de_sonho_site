@@ -21,10 +21,7 @@ main {
 header {
   background-color: #FF5757;
   color: #272030;
-  padding: 2rem 1rem;
   text-align: center;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
